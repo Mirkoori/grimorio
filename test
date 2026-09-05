@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test</title>
+</head>
+<body style="background:#12181A; color:#fff; font-family:sans-serif; padding:30px; font-size:20px;">
+  Ciao, funziona! ✅
+  <p style="font-size:14px; color:#8B9490;">Se vedi questa scritta, GitHub Pages funziona correttamente — il problema è negli script dell'app, non nella pubblicazione del sito.</p>
+</body>
+</html>
