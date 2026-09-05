@@ -1,0 +1,7 @@
+{
+  "generatedAt": null,
+  "source": "https://www.mtggoldfish.com/feed",
+  "general": [],
+  "bannedRestricted": [],
+  "note": "Placeholder — verrà sovrascritto dalla GitHub Action al primo avvio (anche manuale, da Actions → Aggiorna news.json → Run workflow)."
+}
