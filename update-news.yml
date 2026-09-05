@@ -1,0 +1,33 @@
+name: Aggiorna news.json
+
+on:
+  schedule:
+    # Ogni giorno alle 07:00 UTC (~09:00 ora italiana in estate, 08:00 in inverno)
+    - cron: "0 7 * * *"
+  workflow_dispatch: {}  # permette anche di lanciarlo a mano da GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Genera news.json
+        run: python fetch_news.py
+
+      - name: Commit se ci sono cambiamenti
+        run: |
+          git config user.name "grimorio-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add news.json
+          git diff --staged --quiet || git commit -m "Aggiorna news.json [automatico]"
+          git push
