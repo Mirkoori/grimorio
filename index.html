@@ -36,3 +36,28 @@
       box.textContent += "Errore: " + e.message + "\n(file: " + (e.filename || "?") + ", riga: " + (e.lineno || "?") + ")\n\n";
     });
   </script>
+
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div id="boot-error"></div>
+  <div id="root">
+    <div style="color:#8B9490;font-family:sans-serif;padding:20px;font-size:14px;">
+      Caricamento dell'app… se questo messaggio non sparisce entro pochi secondi, uno degli script esterni non si è caricato (controlla la connessione e riprova).
+    </div>
+  </div>
+
+  <script type="text/babel" data-presets="react" src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
